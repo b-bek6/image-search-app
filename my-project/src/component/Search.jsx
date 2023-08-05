@@ -1,4 +1,5 @@
-// this component set the search value of redux
+// this component sets the search value of redux
+
 import React, { useState } from 'react'
 import { VscSearch } from 'react-icons/vsc'
 import { useDispatch, useSelector } from 'react-redux'

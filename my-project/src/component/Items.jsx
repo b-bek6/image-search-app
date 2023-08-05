@@ -1,3 +1,5 @@
+// initial items are called inside this components 
+
 import Card from './Card'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
