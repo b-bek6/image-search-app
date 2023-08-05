@@ -1,3 +1,5 @@
+// Searching component, this is used whenever the search has a value
+
 import Card from './Card'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -10,7 +12,7 @@ export default function SearchItems() {
   const search = useSelector(store => {return store.search?.value})
 
 
-
+// if search value is change this api is called 
   useEffect(()=>{
     axios.get(`https://api.unsplash.com/search/photos?query=${search}&client_id=csgwFB-xx73FwyFcV7Qmb9yqDHIyng4cCORmZpqYz2E`)
     .then(res=>{
@@ -20,7 +22,7 @@ export default function SearchItems() {
     })
   },[search])
 
-
+// if search value is not change but user clicks load more.. value of page is incremented and this api will be called with search value and page value
     useEffect(()=>{
     axios.get(`https://api.unsplash.com/search/photos?query=${search}?page=${page}&client_id=csgwFB-xx73FwyFcV7Qmb9yqDHIyng4cCORmZpqYz2E`)
     .then(res=>{

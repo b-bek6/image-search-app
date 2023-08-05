@@ -1,3 +1,4 @@
+// this component is a card items for the image
 import React, { useEffect } from 'react'
 export default function Card({item}) {
   return (

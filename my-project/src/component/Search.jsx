@@ -1,3 +1,4 @@
+// this component set the search value of redux
 import React, { useState } from 'react'
 import { VscSearch } from 'react-icons/vsc'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,8 +19,8 @@ export default function Search() {
               className='container flex gap-3 bg-blue-500 h-[50px] mt-4 items-center rounded-md'
             >
             <VscSearch 
-            type='submit'
-            className='text-3xl text-white'
+            onClick={handleSubmit}
+            className='text-3xl text-whit'
             />
             <input type="text"
               value={term}
