@@ -12,7 +12,7 @@ export default function Items(){
   useEffect(()=>{
     axios.get(`https://api.unsplash.com/photos?page=${page}&client_id=csgwFB-xx73FwyFcV7Qmb9yqDHIyng4cCORmZpqYz2E`)
       .then(res=>{
-        console.log(res.data);
+        console.log(res);
         setLoading(false)
         setPhoto((prev) => [...prev, ...res.data])
       })
@@ -25,7 +25,7 @@ export default function Items(){
   return (
     <>
      <div>
-        <div className='m-4 container grid md:grid-cols-4 gap-4'>
+        <div className='m-4 container justify-center grid md:grid-cols-4 gap-4'>
           {
             photo.map(item => {
               return <div className=''>
@@ -38,9 +38,9 @@ export default function Items(){
         loading ?
         <div>Loading..</div>
         :
-        <button 
+        <button className='rounded-none bg-blue-400 p-2 w-[100px]'
           onClick={() => setPage(prev => prev + 1)}
-        >View More..</button>
+        >View More </button>
       }
      </div>
     </>

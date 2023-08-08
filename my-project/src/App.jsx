@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import Items from './component/Items'
 import SearchItems from './component/SearchItems'
 function App() {
-  // Get a Search from redux store 
+  // Get Search value from redux store 
   const search = useSelector(store => {return store.search?.value})
   return (
     <>
