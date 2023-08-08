@@ -25,7 +25,6 @@ export default function Items(){
   return (
     <>
      <div>
-        <div className='m-4 container grid md:grid-cols-4 gap-4'>
           {
             photo.map(item => {
               return <div className=''>
@@ -33,7 +32,6 @@ export default function Items(){
               </div>
             })
           }
-      </div>
       {
         loading ?
         <div>Loading..</div>
