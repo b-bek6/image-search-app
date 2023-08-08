@@ -35,6 +35,7 @@ export default function SearchItems() {
   return (
     <>
      <div>
+        <div className='container grid md:grid-cols-4 gap-4'>
           {
             photo.map(item => {
               return <div className=''>
@@ -42,6 +43,7 @@ export default function SearchItems() {
               </div>
             })
           }
+      </div>
       {
         loading ?
         <div>Loading..</div>
