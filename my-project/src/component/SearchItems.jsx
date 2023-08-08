@@ -10,6 +10,7 @@ export default function SearchItems() {
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(true)
   const search = useSelector(store => {return store.search?.value})
+  // for pagination, totalPage will have the value of total page of the result, 
   const [totalPage, setTotalPage] = useState()
 
 
@@ -20,9 +21,10 @@ export default function SearchItems() {
       console.log(res);
       setLoading(false)
       setPage(1);
+      // response from the api will be stored in setPhoto
       setPhoto(res.data.results)
+      // total no of page
       setTotalPage(res.data.total_pages)
-      console.log(totalPage)
     })
   },[search])
 
@@ -32,8 +34,6 @@ export default function SearchItems() {
     .then(res=>{
       setLoading(false)
       setPhoto(prev=> res.data.results)
-      // setTotalPage(res.data.total_pages)
-      // console.log(totalPage)
     })
   },[page])
 
@@ -41,6 +41,9 @@ export default function SearchItems() {
   return (
     <>
      <div>
+        <div className='m-4 text-3xl'>
+          Showing Results For "<span className='capitalize'>{search}</span>" page {page} of {totalPage}
+        </div>
         <div className='m-4 container justify-center grid md:grid-cols-4 gap-4'>
           {
             photo.map(item => {
@@ -50,8 +53,13 @@ export default function SearchItems() {
             })
           }
       </div>
-      <div className='flex justify-center align-middle items-center gap-4'>
-          <button className='rounded-none bg-blue-400 p-2 w-[80px]'
+      {/* Loading Handeling */}
+      {
+        loading ?
+        <div>Loading..</div>
+        :
+        <div className='flex justify-center align-middle items-center gap-4'>
+          <button className='rounded-none bg-blue-400 p-2 w-[80px] text-white'
             onClick={()=>{
               if(page==1){
                 setPage(totalPage)
@@ -61,7 +69,7 @@ export default function SearchItems() {
             }}
           >Pre</button>
           <span className='font-bold'>{page} of {totalPage}</span>
-          <button className='rounded-none bg-blue-400 p-2 w-[80px]'
+          <button className='rounded-none bg-blue-400 p-2 w-[80px] text-white'
             onClick={()=>{
               if(page>0&& page<totalPage){
                 setPage((prev)=> prev+1)
@@ -71,16 +79,7 @@ export default function SearchItems() {
             }}
           >Next</button>
         </div>
-      {/* {
-        loading ?
-        <div>Loading..</div>
-        :
-        <button 
-            onClick={()=>
-            setPage(prev => prev+1)
-            }
-            >View More..</button>
-      } */}
+      }
      </div>
     </>
   )

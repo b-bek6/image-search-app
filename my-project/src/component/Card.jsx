@@ -1,4 +1,5 @@
-// this component is a card items for the image
+// For each Items this component will be called
+
 import React, { useEffect } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 export default function Card({item}) {

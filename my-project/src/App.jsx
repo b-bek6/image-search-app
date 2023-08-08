@@ -1,6 +1,6 @@
 
 import './App.css'
-import Search from './component/Search'
+import SearchNav from './component/SearchNav'
 import { useSelector } from 'react-redux'
 import Items from './component/Items'
 import SearchItems from './component/SearchItems'
@@ -10,7 +10,7 @@ function App() {
   return (
     <>
      <div>
-      <Search />
+      <SearchNav />
       {/* if search doesn't have value it will use items component else it will use SearchItems */}
       {
         search == ''

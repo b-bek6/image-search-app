@@ -21,7 +21,7 @@ export default function Search() {
             >
             <VscSearch 
             onClick={handleSubmit}
-            className='text-3xl text-whit'
+            className='text-3xl text-white'
             />
             <input type="text"
               value={term}

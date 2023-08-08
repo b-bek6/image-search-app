@@ -38,7 +38,7 @@ export default function Items(){
         loading ?
         <div>Loading..</div>
         :
-        <button className='rounded-none bg-blue-400 p-2 w-[100px]'
+        <button className='rounded-none bg-blue-400 p-2 w-[100px] text-white'
           onClick={() => setPage(prev => prev + 1)}
         >View More </button>
       }
